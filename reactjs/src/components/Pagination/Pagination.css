@@ -1,0 +1,15 @@
+.pagination {
+    height: 100px;
+    background-color: purple;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.pagination-btn {
+    padding: 10px;
+    background-color: black;
+    text-align: center;
+    color: white;
+}

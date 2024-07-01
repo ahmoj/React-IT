@@ -1,0 +1,22 @@
+.team-card {
+    background-color: aliceblue;
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 3fr;
+    align-content: center;
+    justify-content: center;
+    border-radius: 15px;
+  }
+  .h2 {
+    color: black;
+    align-self: center;
+  }
+  
+  .p {
+    color: black;
+    align-self: center;
+  }
+  
+  .text {
+    grid-column: span 6;
+  }

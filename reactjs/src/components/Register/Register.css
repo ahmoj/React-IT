@@ -1,0 +1,29 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-box {
+    background-color: white ;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.input {
+    height: 20px;
+    margin-left: 10px;
+
+}
+
+.main-box {
+    background-color: white;
+    width: 300px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+

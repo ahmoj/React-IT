@@ -1,0 +1,50 @@
+.hotel {
+    min-height: 80vh;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 2em auto;
+    gap: 2em;
+  }
+  
+  .title {
+    height: 500px;
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1em;
+    margin-bottom: 1em;
+  }
+  
+  .icons {
+    font-size: 2em;
+  }
+  
+  .slika {
+    width: 50%;
+    height: 500px;
+  }
+  
+  .sadrzaj {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 70%;
+  }
+  
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .li {
+    display: flex;
+    align-items: center;
+    border: 1px solid gray;
+    padding: 6px 10px;
+    border-radius: 5px;
+  }

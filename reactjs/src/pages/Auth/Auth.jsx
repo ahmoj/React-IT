@@ -4,7 +4,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import Register from '../../components/Register/Register';
-import LogIn from '../../components/LogIn/LogIn';
+import Login from '../../components/Login/Login';
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -35,7 +35,7 @@ function a11yProps(index) {
   };
 }
 
-export default function BasicTabs() {
+export default function Auth() {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -54,7 +54,7 @@ export default function BasicTabs() {
         <Register/>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        <LogIn/>
+        <Login/>
       </CustomTabPanel>
     </Box>
   );

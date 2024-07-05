@@ -1,0 +1,34 @@
+.upper-box {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    gap: 200px;
+}
+
+.lower-box {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    gap: 200px;
+}
+
+.card {
+    height: 20px;
+    transition: height 2s;
+    width: 250px;
+    color: white;
+    background-color: black;
+
+}
+
+.card:hover {
+    height: 250px;
+}
+
+.text-box {
+    margin-top: 20px;
+    color: white;
+    
+}

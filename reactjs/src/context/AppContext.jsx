@@ -1,19 +1,19 @@
-import { createContext } from "react";
-import { useState } from "react";
+/* eslint-disable react/prop-types */
+import { createContext, useState } from "react";
 
-const AppContext = createContext()
+const AppContext = createContext();
 
 function ContextProvider({ children }) {
-    const [favoriteHotels, setFavoriteHotels] = useState([])
+  const [loggedInUser, setLoggedInUser] = useState(null);
+  const [favoriteHotels, setFavoriteHotels] = useState([]);
 
-    const values = {
-        favoriteHotels,
-        setFavoriteHotels
-    }
-
-    return (
-        <AppContext.Provider value={values}>{children}</AppContext.Provider>
-    )
+  const values = {
+    loggedInUser,
+    favoriteHotels,
+    setLoggedInUser,
+    setFavoriteHotels,
+  };
+  return <AppContext.Provider value={values}>{children}</AppContext.Provider>;
 }
 
-export {AppContext, ContextProvider}
+export { AppContext, ContextProvider };

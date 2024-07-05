@@ -1,52 +1,77 @@
-import React from 'react'
-import './LogIn.css'
-import { Button, Input } from '@mui/material'
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useContext, useState } from "react";
+import { TextField, Button, Container, Box, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { AppContext } from "../../context/AppContext";
 
-const LogIn = () => {
-  const navigate = useNavigate()
-  const [newEmail, setNewEmail] = useState('')
-  const [newPassword, setNewPassword] = useState('')
+const Login = () => {
+  const navigate = useNavigate();
+  const { setLoggedInUser } = useContext(AppContext);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const email = localStorage.getItem('email')
-  const password = localStorage.getItem('password')
-
-  console.log(email, password);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const user = {
+      email,
+      password,
+    };
+    const localUserString = localStorage.getItem("user");
+    const localUser = JSON.parse(localUserString);
+    if (
+      user.email === localUser.email &&
+      user.password === localUser.password
+    ) {
+      localStorage.setItem("loggedInUser", JSON.stringify(user));
+      setLoggedInUser(user);
+      navigate("/");
+    } else {
+      alert("Nisu ispravni kredencijali.");
+    }
+  };
   return (
-    <div>
-        <h1>Log In</h1>
-        <div className="input-box">
-            <span>Email:</span>
-            <Input className='input' value={newEmail} onChange={(event) => (
-              setNewEmail(event.target.value)
-            )}></Input>
-            {console.log(newEmail)}
-            <span style={{marginLeft: '50px'}}>Password:</span>
-            <Input className='input' type='password' value={newPassword} onChange={(event) => (
-              setNewPassword(event.target.value)
-            )}></Input>
-            {console.log(newPassword)}
-        </div>
-        <Button variant='contained' style={{marginTop: '30px'}} onClick={() => {
-          if (newEmail, newPassword === '') {
-            alert('Niste popunili sve zahteve')
-          }
-          else if (!newEmail.includes('@')) {
-            alert('Email mora da sadrzi @')
-          }
-          else if (newPassword.length < 5) {
-            alert('Password mora da ima 5 ili vise karaktera')
-          }
-          else if (newEmail !== email || newPassword !== password) {
-            alert('Email ili Password se ne poklapa..')
-          }
-          else {
-            navigate('/')
-          }
-        }}>Log In</Button>
-    </div>
-  )
-}
+    <Container maxWidth="xs">
+      <Box
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+      >
+        <Typography variant="h4" component="h1" gutterBottom>
+          Login
+        </Typography>
+        <form onSubmit={handleSubmit}>
+          <TextField
+            label="Email"
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <TextField
+            label="Password"
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            sx={{ mt: 2 }}
+          >
+            Login
+          </Button>
+        </form>
+      </Box>
+    </Container>
+  );
+};
 
-export default LogIn
+export default Login;
